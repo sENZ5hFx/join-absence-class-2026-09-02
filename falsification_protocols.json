@@ -1,0 +1,158 @@
+{
+  "function": "falsification_protocol",
+  "times_invoked": 3,
+  "cards": [
+    {
+      "coupling_name": "Geodynamo \u2192 animal magnetoreception as a live time series",
+      "physical_channel": "geomagnetic field sourced in deforming inner core + outer-core flow, read by animal magnetoreceptors",
+      "hypothesis": "After removing solar-storm (Dst/Kp/AE), meteorological, and anthropogenic confounds, residual variance in animal navigation-failure and vagrancy time series covaries with geomagnetic secular-variation jerks and published inner-core seismic-waveform change epochs (including 2004\u20132008 Vidale window and later rotation-pause reports).",
+      "n_datasets": 6,
+      "n_public_datasets": 5,
+      "runnable_today": true,
+      "datasets": [
+        {
+          "name": "INTERMAGNET observatory network",
+          "coverage": "global geomagnetic components, minutes to decades",
+          "public": true,
+          "url_or_source": "https://www.intermagnet.org"
+        },
+        {
+          "name": "OMNI / Kyoto Dst / GFZ Kp (solar-terrestrial)",
+          "coverage": "solar-wind and geomagnetic storm indices, 1960s\u2013present",
+          "public": true,
+          "url_or_source": "https://omniweb.gsfc.nasa.gov / WDC Kyoto"
+        },
+        {
+          "name": "Movebank / ICARUS animal-tracking archives",
+          "coverage": "birds, bats, marine mammals; uneven but multi-decadal",
+          "public": true,
+          "url_or_source": "https://www.movebank.org"
+        },
+        {
+          "name": "IWC / NOAA/NMFS large-whale stranding records",
+          "coverage": "regional, biased toward populated coasts",
+          "public": true,
+          "url_or_source": "NOAA MMHSRP; IWC stranding databases"
+        },
+        {
+          "name": "Inner-core seismic waveform change epochs",
+          "coverage": "sparse: South Sandwich \u2192 Alaska/Canada paths; discrete papers",
+          "public": true,
+          "url_or_source": "Vidale et al. Nature Geoscience 2025; earlier Yang & Song / Wang rotation papers"
+        },
+        {
+          "name": "Homing-pigeon racing loss records",
+          "coverage": "clubs, incomplete, historically noted around solar storms",
+          "public": false,
+          "url_or_source": "national pigeon-racing unions; would need data-use agreements"
+        }
+      ],
+      "primary_outcome": "Weekly-to-monthly anomaly index of (a) migratory heading residual vs great-circle to stopover, (b) stranding count residual vs seasonal baseline, aligned to geomagnetic jerk dates and inner-core epochs.",
+      "controls": [
+        "Kp, Dst, AE (solar storms \u2014 the known spoken confound)",
+        "ERA5 wind, precipitation, SST, NAO/ENSO indices",
+        "shipping density / seismic survey calendars (for whales)",
+        "effort/observer bias (coastal population, weekend effects)",
+        "photoperiod and clock-shift seasonality"
+      ],
+      "confounds": [
+        "Solar storms already affect pigeons and possibly whales \u2014 any core-sourced signal is a RESIDUAL after this.",
+        "Stranding databases are spatially biased; do not interpret geography of reports as geography of deaths.",
+        "Inner-core epochs are few (N small). Risk of p-hacking a handful of famous dates.",
+        "Magnetoreceptor identity still unknown; a null does not disprove magnetoreception, only this coupling."
+      ],
+      "null_statement": "Null: no residual covariance between navigation-failure/stranding anomalies and inner-core / secular-jerk epochs after solar and meteorological controls (partial r consistent with 0; pre-registered).",
+      "minimum_detectable_effect": "With ~20 years of weekly Movebank + stranding series and ~5 documented core/jerk epochs, the design is powered only for a LARGE residual (Cohen d \u2273 0.6 around epoch windows). Small effects will be invisible. That is acceptable: a coupling worth claiming should not be a tiny residual.",
+      "pre_registration_notes": "Freeze epoch list BEFORE looking at animal residuals. Epochs: Vidale 2004\u20132008 waveform-change window; published inner-core rotation-pause interval (early 2010s\u20132020s literature); known geomagnetic jerks (e.g. 1969, 1978, 1991, 1999, 2014, 2017+ as catalogued). Do not add epochs post hoc. One-tailed tests forbidden. Multiple-comparison correction across three animal classes (birds, turtles, whales).",
+      "would_count_as_success": "Pre-registered residual association survives solar+weather controls in at least two independent animal classes, with the same sign relative to jerk polarity, and fails a negative-control (randomized epoch times).",
+      "would_count_as_failure": "No residual, or residual that disappears when Kp/Dst is included. That is the expected outcome and would still be a result: it would kill this gap and return magnetoreception to ecology+solar weather. FAILURE IS THE HONEST BASE RATE.",
+      "ethical_constraints": "Observational only. No new capture. Stranding records are of dead or distressed animals; do not imply causation in public communication even if residual is real, until replication.",
+      "status_if_run_today": "RUNNABLE WITH PUBLIC DATA"
+    },
+    {
+      "coupling_name": "Ultraweak photon emission as detector-noise cousin, not communication",
+      "physical_channel": "photons at 10\u20131000 s^-1 cm^-2 plus the contamination budget of rare-event photon counting",
+      "hypothesis": "Cell-state classification from UPE spectra fails once shielding and delayed-luminescence protocols match SuperCDMS/TESSERACT-class contamination control.",
+      "n_datasets": 2,
+      "n_public_datasets": 2,
+      "runnable_today": true,
+      "datasets": [
+        {
+          "name": "Published UPE cancer-vs-normal small-N optical counts",
+          "coverage": "lab, tiny N, heterogeneous shielding",
+          "public": true,
+          "url_or_source": "scattered UPE/biophoton papers (Popp lineage and later biomedical UPE)"
+        },
+        {
+          "name": "Rare-event detector noise cookbooks",
+          "coverage": "phonon bursts, luminescence, radioactive backgrounds",
+          "public": true,
+          "url_or_source": "Mahapatra Applied Physics Letters 2025; SuperCDMS / TESSERACT technical notes"
+        }
+      ],
+      "primary_outcome": "Blinded AUC for cell-state from UPE under physics-grade shielding vs under typical biology-lab shielding.",
+      "controls": [
+        "temperature",
+        "oxidative-stress reagents",
+        "delayed luminescence after room lights",
+        "PMT dark counts"
+      ],
+      "confounds": [
+        "almost all positive UPE-biomarker claims use shielding that a dark-matter group would reject"
+      ],
+      "null_statement": "Null: AUC indistinguishable from 0.5 under physics-grade shielding.",
+      "minimum_detectable_effect": "AUC >= 0.75 pre-registered, N sufficient for 80% power, independent replication lab.",
+      "pre_registration_notes": "Shielding protocol written by a rare-event physicist, not the UPE team.",
+      "would_count_as_success": "AUC holds under physics-grade shielding. Still NOT proof of communication \u2014 only of a biomarker.",
+      "would_count_as_failure": "Signal vanishes under proper shielding \u2014 UPE literature's biomedical claims were contamination. This is the base-rate expectation.",
+      "ethical_constraints": "Cell culture / discarded tissue only unless separately consented.",
+      "status_if_run_today": "RUNNABLE WITH PUBLIC DATA"
+    },
+    {
+      "coupling_name": "Gut microbial dark matter as control for inaccessibility",
+      "physical_channel": "unmatched ORFs / uncultured lineages in metagenomes",
+      "hypothesis": "Unmatched-ORF fraction remains high in both human gut (hyper-sampled) and deep subsurface (hypo-sampled) after the same pipeline, implying darkness is methodological not geographic.",
+      "n_datasets": 2,
+      "n_public_datasets": 2,
+      "runnable_today": true,
+      "datasets": [
+        {
+          "name": "MGnify / UHGG human gut catalogues",
+          "coverage": "10^5\u201310^6 gut metagenomes",
+          "public": true,
+          "url_or_source": "https://www.ebi.ac.uk/metagenomics"
+        },
+        {
+          "name": "Deep biosphere MAG catalogues (IODP, terrestrial mines, DCO follow-ons)",
+          "coverage": "sparse relative to gut but growing",
+          "public": true,
+          "url_or_source": "NCBI / IMG; Anantharaman lab tools"
+        }
+      ],
+      "primary_outcome": "Fraction of ORFs with no hit above a frozen bit-score threshold, same assembler/annotator, gut vs subsurface.",
+      "controls": [
+        "read depth rarefaction",
+        "same database snapshot date",
+        "same contamination filters"
+      ],
+      "confounds": [
+        "database contamination; gut databases are circularly trained on guts so gut 'known' fraction is inflated"
+      ],
+      "null_statement": "Null of the CONTROL reading: gut unmatched << subsurface unmatched. If that null holds, darkness IS inaccessibility.",
+      "minimum_detectable_effect": "A 2\u00d7 difference in unmatched fraction after rarefaction.",
+      "pre_registration_notes": "Freeze the reference DB date. Do not update UniProt mid-analysis.",
+      "would_count_as_success": "Gut unmatched remains high and comparable \u2014 darkness is culture/database, not caves.",
+      "would_count_as_failure": "Gut is nearly fully named, subsurface is not \u2014 then 'dark biosphere' really does mean 'far away'.",
+      "ethical_constraints": "Human gut data already de-identified in public catalogues; do not re-identify.",
+      "status_if_run_today": "RUNNABLE WITH PUBLIC DATA"
+    }
+  ],
+  "meta": {
+    "runnable_today": [
+      "Geodynamo \u2192 animal magnetoreception as a live time series",
+      "Ultraweak photon emission as detector-noise cousin, not communication",
+      "Gut microbial dark matter as control for inaccessibility"
+    ],
+    "insight": "All three top structural gaps are runnable on public data. The capability gap is not 'we need a new telescope'. It is that nobody has pre-registered these residual tests. That is an institutional failure, not an instrumental one."
+  }
+}

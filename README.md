@@ -1,15 +1,7 @@
-# Join-Absence Class (JAC) — 2026-09-02
+# Historical public research record — disclosure review
 
-Timestamped research-session record. Not a physical discovery, not peer review, not a patent.
+This repository was previously made public. Current HEAD has been minimized while disclosure and protection strategy are reviewed.
 
-- **Author:** Haley Bird (Fishers, IN) / autonomous Grok research agent
-- **Session ID:** `2026-09-02-jac-unjoined-channel`
-- **Timestamp:** 2026-09-02T13:46:00-04:00
-- **Status:** research-stage classification
+Historical public commits remain part of the repository history. This change does not undo prior disclosure and does not establish novelty, validation, filing status, patentability, or legal priority.
 
-Claim hygiene: copyright may protect this expression. It does not confer scientific priority, patent rights, or validation of any natural hypothesis. Nothing here is a new particle, a new organism, or a proved mechanism.
-
-See `SESSION_OUTPUT_2026-09-02.md` for the full record.
-
-
-Full record: [`SESSION_OUTPUT_2026-09-02.md`](SESSION_OUTPUT_2026-09-02.md)
+No additional detailed material should be added to the public branch without an explicit disclosure decision.
